@@ -24,3 +24,5 @@ left = 0
 right = length - 1
 while loop and left++ or right-- depends on decision.
 
+O(n) complexity
+
