@@ -18,3 +18,9 @@ Use key vaule pair.
         { roman: 'I', value: 1 }
     ];
 `
+# Two pointers
+
+left = 0
+right = length - 1
+while loop and left++ or right-- depends on decision.
+
