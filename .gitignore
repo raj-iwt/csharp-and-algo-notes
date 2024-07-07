@@ -3,3 +3,4 @@
 .vs/**/*
 span/bin/**/*
 span/obj/**/*
+.fake
