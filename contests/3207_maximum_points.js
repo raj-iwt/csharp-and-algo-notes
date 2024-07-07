@@ -4,33 +4,21 @@
  * @return {number}
  */
 var maximumPoints = function (enemyEnergies, currentEnergy) {
-  // compute execution time
   enemyEnergies = enemyEnergies.sort((a, b) => a - b);
-
-  const start = new Date().getTime();
   let points = 0;
   if (enemyEnergies.length === 0) return points;
   while (enemyEnergies.length > 0 && currentEnergy >= enemyEnergies[0]) {
-    console.log("enemyEnergies[0] :", enemyEnergies[0]);
     const minEnemyEnergy = enemyEnergies[0];
     const p = Math.floor(currentEnergy / minEnemyEnergy);
     points += p;
     currentEnergy -= p * minEnemyEnergy;
-    console.log("last index:", enemyEnergies.length - 1);
-    if (
-      enemyEnergies.length > 0 &&
-      currentEnergy < enemyEnergies[enemyEnergies.length - 1]
-    ) {
+    if (enemyEnergies.length > 0 && currentEnergy < enemyEnergies[0]) {
       const maxEnemyEnergy = enemyEnergies[enemyEnergies.length - 1];
       currentEnergy += maxEnemyEnergy;
-      enemyEnergies = enemyEnergies.pop();
+      enemyEnergies.pop();
     }
   }
 
-  // compute execution time in seconds
-  const end = new Date().getTime();
-  const executionTime = (end - start) / 1000;
-  console.log("Execution time in seconds: ", executionTime);
   return points;
 };
 
