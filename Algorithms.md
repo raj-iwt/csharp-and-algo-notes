@@ -31,10 +31,34 @@ It focus on making the locally optimal choice at each step with the hope of find
 
 ```Most optimal or greediest choice at each decision point```
 
+For example, Coin change problem will look at higher denomination first and substract the remaining amount until it turns to zero.
 
+### Huffman coding
+- Data compression technique
+- Assigns shorter codes for most frequently occurring characters and longer for least
 
-**Dynamic Programming algorithms** are designed to solve problems by breaking them down into smaller sub-problems and storing the results of these sub-problems to avoid redundant computation.
+### Prim's Minimal Spanning Tree Algorithm
+- Used in computer networks to optimize network performance
+- Finding a minimum spanning tree for a weighted undirected graph
 
-**Brute Force Algorithms** are the most straightforward algorithms that work by trying every possible solution and selecting the best one.
+### Kruskal's Minimal Spanning Tree Algorithm
+- Finds the most cost-effective option of the node in the graph
+
+### Dijkstra's Shortest Path Algorithm
+- Finding shortest path between two nodes in a graph
+
+### Fractional Knapsack Problem
+- Break items for maximizing the total value of knapsack
+
+## Dynamic Programming algorithms
+
+Dynamic programming is designed to solve problems by breaking them down into smaller sub-problems and storing the results of these sub-problems to avoid redundant computation.
+
+### Top-down (Memoization)
+
+### Bottom-up
+
+## Brute Force Algorithms 
+Brute Force are the most straightforward algorithms that work by trying every possible solution and selecting the best one.
 
 
