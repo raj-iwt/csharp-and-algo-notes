@@ -29,3 +29,7 @@ var inorderTraversal = function (root) {
 
 const root = new TreeNode(1, null, new TreeNode(2, new TreeNode(3)));
 console.log(inorderTraversal(root)); // [1,3,2]
+
+
+
+
