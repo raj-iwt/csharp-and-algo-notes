@@ -85,3 +85,18 @@ function dft_postorder(node) {
 ### Breadth-First Traversal (BFT)
 
 #### Level order
+
+
+
+## Tree Height
+
+Length of longest path from the root to leaf.
+
+```
+function treeHeight(node) {
+  if (node == null) return 0;
+  const leftHeight = treeHeight(node.left);
+  const rightHeight = treeHeight(node.right);
+  return Math.max(leftHeight, rightHeight) + 1;
+}
+```
