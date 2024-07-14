@@ -1,6 +1,15 @@
-function ListNode(val) {
-  this.val = val;
-  this.next = null;
+function ListNode(val, next) {
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
+}
+
+function reverseList(head) {
+  let result = null;
+  while (head != null) {
+    result = new ListNode(head.val, result);
+    head = head.next;
+  }
+  return result;
 }
 
 /**
@@ -16,47 +25,30 @@ function ListNode(val) {
  * @return {ListNode}
  */
 var addTwoNumbers = function (l1, l2) {
-  let sum1 = 0;
-  let sum2 = 0;
-  while (l1 != null || l2 != null) {
-    if (l1 != null) {
-      sum1 *= 10;
-      sum1 += l1.val;
-      l1 = l1.next;
-    }
+  let newList1 = reverseList(l1);
+  let newList2 = reverseList(l2);
 
-    if (l2 != null) {
-      sum2 *= 10;
-      sum2 += l2.val;
-      l2 = l2.next;
-    }
-  }
-
-  let total = sum1 + sum2;
-  if (total == 0) {
-    return new ListNode(0);
-  }
   let result = null;
+  let carry = 0;
 
-  while (total > 0) {
-    let newNode = new ListNode(Number(total % 10));
-    newNode.next = result;
-    result = newNode;
-    total = Math.floor(total / 10);
+  while (newList1 != null || newList2 != null) {
+    let sum =
+      (newList1 ? newList1.val : 0) + (newList2 ? newList2.val : 0) + carry;
+    carry = Math.floor(sum / 10);
+    result = new ListNode(sum % 10, result);
+    newList1 = newList1 != null ? newList1.next : newList1;
+    newList2 = newList2 != null ? newList2.next : newList2;
   }
+
+  if (carry > 0) {
+    result = new ListNode(carry, result);
+  }
+
   return result;
 };
 
-const list1 = [
-  2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4,
-  3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2,
-  4, 3, 2, 4, 3, 2, 4, 3, 9,
-];
-const list2 = [
-  5, 6, 4, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4,
-  3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 3, 2,
-  4, 3, 2, 4, 3, 9, 9, 9, 9,
-];
+const list1 = [5];
+const list2 = [5];
 
 createListNode = (arr) => {
   let head = new ListNode(arr[0]);
