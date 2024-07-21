@@ -16,8 +16,7 @@ var merge = function (nums1, m, nums2, n) {
     k++;
   }
 
-  let i = 0;
- 
+  let i = 0; 
 
   while (i < nums1.length) { 
     let j = i + 1;
