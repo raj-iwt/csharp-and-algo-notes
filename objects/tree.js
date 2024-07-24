@@ -72,3 +72,51 @@ function dft_postorder(node) {
 }
 
 dft_postorder(root);
+
+// Height of Tree
+
+function treeHeight(node) {
+  if (node == null) return 0;
+  const leftHeight = treeHeight(node.left);
+  const rightHeight = treeHeight(node.right);
+  return Math.max(leftHeight, rightHeight) + 1;
+}
+
+// Balanced Tree
+
+function isBalanced(node) {
+  function checkHeight(node) {
+    if (node == null) return 0;
+    const leftHeight = checkHeight(node.left);
+    const rightHeight = checkHeight(node.right);
+
+    if (
+      leftHeight == -1 ||
+      rightHeight == -1 ||
+      Math.abs(leftHeight - rightHeight) > 1
+    ) {
+      return -1;
+    }
+
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
+
+  return checkHeight(node) !== -1;
+}
+
+// Binary Search Tree (BST)
+
+function isBst(node, low = null, high = null) {
+  if (node) {
+    if (low !== null && node.val <= low) {
+      return false;
+    }
+
+    if (high !== null && node.val >= high) {
+      return false;
+    }
+
+    return isBst(node.left, node.val, high) && isBst(node.right, low, node.val);
+  }
+  return true;
+}

@@ -26,3 +26,12 @@ while loop and left++ or right-- depends on decision.
 
 O(n) complexity
 
+Usage:
+
+1. Reverse an array
+
+
+# Binary Search
+
+Find the mid position and split the array into two sub-array.
+Then, perform the same operation to left sub-array or right sub-array
