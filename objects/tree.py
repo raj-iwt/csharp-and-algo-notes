@@ -1,4 +1,4 @@
-class Node:
+class TreeNode:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -10,19 +10,19 @@ class Tree:
         
     def insert(self, val):
         if self.root == None:
-            self.root = Node(val)
+            self.root = TreeNode(val)
         else:
             self.insert_recursive(self.root, val)
 
     def insert_recursive(self, current, val):
         if val < self.root.val:
             if current.left == None:
-                current.left = Node(val)
+                current.left = TreeNode(val)
             else:
                 self.insert_recursive(current.left, val)
         else:
             if current.right == None:
-                current.right == Node(val)
+                current.right == TreeNode(val)
             else:
                 self.insert_recursive(current.right, val)
 
