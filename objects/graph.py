@@ -1,3 +1,5 @@
+from collections import deque
+
 class Graph:
     def __init__(self):
         self.vertices = {}
@@ -22,7 +24,21 @@ class Graph:
             if neighbor not in visited:
                 self._dfs_recursive(neighbor, visited)
 
+    def bfs(self, start):
+        visited = set()
+        queue = deque([start])
+        result = []
 
+        while queue:
+            vertex = queue.popleft()
+            if vertex not in visited:
+                visited.add(vertex)
+                result.append(vertex)
+                for neighbor in self.vertices[vertex]:
+                    if neighbor not in visited:
+                        queue.append(neighbor)
+
+        return result
 
 
 
